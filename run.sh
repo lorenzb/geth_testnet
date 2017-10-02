@@ -18,7 +18,14 @@ fi
 
 if ! [ -d "geth" ]
 then
-	geth --datadir . init genesis.json
+	echo "Would you like to activate Byzantium?"
+	select yn in "No" "Yes"
+	do
+		case $yn in
+			Yes ) geth --datadir . init <(sed s/999999999/0/ <genesis.json); break;;
+			No ) geth --datadir . init genesis.json; break;;
+		esac
+	done
 fi
 
 geth --datadir . --networkid 7418 --rpc --rpccorsdomain '*' --rpcapi "eth,net,web3,debug" --unlock 0,1,2 --password <(echo;echo;echo;echo) --mine --minerthreads=1
