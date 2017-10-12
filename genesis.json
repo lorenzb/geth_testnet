@@ -9,6 +9,7 @@
   },
   "gasLimit": "5000000",
   "difficulty": "20000",
+  "nonce": "0x0007a83b0fcc2042",
   "alloc": {
     "7d1480f9e92a91387e88e6acd1ea82c4acf87c87": {
       "balance": "10000000000000000000000000"
